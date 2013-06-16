@@ -23,7 +23,7 @@ class PerspectiveBackground
   init: ->
     $(window).on 'deviceorientation.pb', (event) =>
       currentOrientation = new Orientation(event.originalEvent)
-      console.log interpretation = currentOrientation.interpret(@initialOrientation)
+      interpretation = currentOrientation.interpret(@initialOrientation)
       $('.perspective-background').css('transform', interpretation)
 
 $ ->
