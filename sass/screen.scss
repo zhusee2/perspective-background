@@ -1,6 +1,11 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+html {
+  min-height: 100%;
+}
 
-@import "compass/reset";
+body {
+  min-height: 100%;
+  background: url(../images/background.jpg) no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  color: rgba(255,255,255,.85);
+}
