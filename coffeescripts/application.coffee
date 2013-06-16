@@ -5,13 +5,13 @@ class Orientation
     @z = orientationEvent.alpha # 0 ~ 360
 
   interpret: (initialOrientation) ->
-    diffX = @x - initialOrientation.x  # positive => go up
-    diffY = @y - initialOrientation.y  # positive => go left
+    diffVertical = @x - initialOrientation.x  # positive => go up
+    diffHorizontal = @y - initialOrientation.y  # positive => go left
 
-    bgDeltaX = diffX / 180 * 50 + 50
-    bgDeltaY = (diffY / 180 * 50) + 50
+    bgTranslateY = diffVertical / 180 * -15
+    bgTranslateX = diffHorizontal / 180 * -15
 
-    return "#{bgDeltaY}% #{bgDeltaX}%"
+    return "translateX(#{bgTranslateX}%) translateY(#{bgTranslateY}%)"
 
 class PerspectiveBackground
   constructor: ->
@@ -24,7 +24,7 @@ class PerspectiveBackground
     $(window).on 'deviceorientation.pb', (event) =>
       currentOrientation = new Orientation(event.originalEvent)
       console.log interpretation = currentOrientation.interpret(@initialOrientation)
-      $('body').css('background-position', interpretation)
+      $('.perspective-background').css('transform', interpretation)
 
 $ ->
   pb = new PerspectiveBackground()
