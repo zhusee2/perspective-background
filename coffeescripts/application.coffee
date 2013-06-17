@@ -8,10 +8,10 @@ class Orientation
     diffVertical = @x - initialOrientation.x  # positive => go up
     diffHorizontal = @y - initialOrientation.y  # positive => go left
 
-    bgTranslateY = diffVertical / 180 * -15
-    bgTranslateX = diffHorizontal / 180 * -15
+    bgTranslateY = diffVertical / 180 * -25
+    bgTranslateX = diffHorizontal / 180 * -25
 
-    return "translateX(#{bgTranslateX}%) translateY(#{bgTranslateY}%)"
+    return "scale(2) translateX(#{bgTranslateX}%) translateY(#{bgTranslateY}%)"
 
 class PerspectiveBackground
   constructor: ->
